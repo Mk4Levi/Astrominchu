@@ -3,25 +3,88 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0c1445; /* Deep dark blue */
+  --foreground: #e6e6e6; /* Light gray for text */
+  --accent-primary: #1e40af; /* Slightly lighter blue for accents */
+  --accent-secondary: #2563eb; /* Bright blue for highlights */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0c1445;
+    --foreground: #e6e6e6;
+    --accent-primary: #1e40af;
+    --accent-secondary: #2563eb;
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", "Arial", sans-serif;
+  line-height: 1.6;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--accent-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-secondary);
+  border-radius: 6px;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
+  .bg-gradient-dark-blue {
+    background: linear-gradient(
+      135deg,
+      var(--background) 0%,
+      color-mix(in srgb, var(--background) 90%, white) 100%
+    );
+  }
+
+  /* Glassmorphism effect utility */
+  .glass-morphism {
+    background: rgba(30, 64, 175, 0.2); /* Translucent blue */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+  }
+}
+
+/* Typography enhancements */
+h1,
+h2,
+h3 {
+  color: var(--accent-secondary);
+  font-weight: bold;
+}
+
+a {
+  color: var(--accent-secondary);
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-secondary) 80%, white);
+  text-decoration: underline;
+}
+
+/* Button styles */
+.btn-primary {
+  background-color: var(--accent-secondary);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: color-mix(in srgb, var(--accent-secondary) 80%, white);
 }

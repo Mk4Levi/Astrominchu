@@ -7,10 +7,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: {
-    default: "Your Website",
-    template: "%s | Your Website",
+    default: "Astrominchu",
+    template: "%s | Astrominchu",
   },
-  description: "Welcome to our website",
+  description:
+    "AstroMinchu aims to inspire people to marvel at the various astronomical events, galaxies, nebulas, and other wonders that grace our universe.",
 };
 
 export default function RootLayout({ children }) {
